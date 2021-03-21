@@ -1,0 +1,35 @@
+{
+	"name": "scuta",
+	"version": "0.0.1",
+	"description": "Generate URLs for Shields.io badges with custom SVG logo images.",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/joaopalmeiro/scuta.git"
+	},
+	"author": {
+		"name": "João Palmeiro",
+		"email": "joaommpalmeiro@gmail.com",
+		"url": "https://twitter.com/joaompalmeiro"
+	},
+	"bin": {
+		"scuta": "cli.js"
+	},
+	"engines": {
+		"node": ">=10"
+	},
+	"files": [
+		"cli.js"
+	],
+	"bugs": {
+		"url": "https://github.com/joaopalmeiro/scuta/issues"
+	},
+	"homepage": "https://github.com/joaopalmeiro/scuta#readme",
+	"dependencies": {
+		"meow": "^9.0.0"
+	},
+	"keywords": [
+		"cli-app",
+		"cli"
+	]
+}
