@@ -10,8 +10,25 @@ npm install --global scuta
 
 ## Usage
 
+```sh
+$ scuta --help
+
+  Generate URLs for Shields.io badges with custom SVG logo images.
+
+  Usage
+    $ scuta <message> <bg-color> <svg-path>
+
+  Example
+    $ scuta Vega 325 logo.svg
+    $ scuta Vega '#325' logo.svg
+```
+
 ## References
 
 - [node-cli-boilerplate](https://github.com/sindresorhus/node-cli-boilerplate).
 - Atta's [Base64 Encoding and Decoding in Node.js](https://attacomsian.com/blog/nodejs-base64-encode-decode) blog post.
 - `--version` and `--help`.
+- [css-color-converter](https://www.npmjs.com/package/css-color-converter) (`npm i css-color-converter`).
+- Default colors:
+  - `#fff` (white).
+  - `#333` (black).
