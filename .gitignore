@@ -105,4 +105,4 @@ dist
 
 # Custom
 test*.svg
-logo*.svg
+/*logo.svg
