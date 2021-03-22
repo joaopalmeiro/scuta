@@ -12,7 +12,7 @@ npm install --global scuta
 
 ## Usage
 
-```sh
+```text
 $ scuta --help
 
   Generate URLs for Shields.io badges with custom SVG logo images.
