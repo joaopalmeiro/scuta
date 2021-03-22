@@ -5,6 +5,16 @@ const fs = require("fs");
 const meow = require("meow");
 // const { fromString } = require("css-color-converter");
 
+const prepareOutput = (url, format) => {
+	if (format === "url") {
+		return url;
+	} else if (format === "markdown") {
+		return `![Badge](${url})`;
+	} else {
+		return url;
+	}
+};
+
 // Constants
 // https://img.shields.io/badge/<LABEL>-<MESSAGE>-<COLOR>
 const BASE_URL = "https://img.shields.io/badge/";
@@ -52,15 +62,34 @@ function isHexColorPrefix(color) {
 // }
 
 // CLI
-// More info: https://github.com/sindresorhus/terminal-link-cli/blob/main/cli.js
-const cli = meow(`
+// More info:
+// - https://github.com/sindresorhus/terminal-link-cli/blob/main/cli.js
+// - https://github.com/sindresorhus/boxen-cli/blob/main/cli.js
+const cli = meow(
+	`
 	Usage
 	  $ scuta <message> <bg-color> <svg-path>
+
+	Options
+	  --output, -o  Output format [url|markdown] (Default: url)
 
 	Example
 	  $ scuta Vega 325 logo.svg
 	  $ scuta Vega '#325' logo.svg
-`);
+	  $ scuta Vega 325 logo.svg --output markdown
+`,
+	{
+		flags: {
+			output: {
+				type: "string",
+				alias: "o",
+				default: "url",
+			},
+		},
+	}
+);
+
+// console.log(cli);
 
 // CLI Parameters
 let [message, bgColor, svgPath] = cli.input;
@@ -84,4 +113,4 @@ const logoParam = `logo=${svgDataUrl}`;
 
 const badgeUrl = `${badge}?${styleParam}&${logoParam}`;
 
-console.log(badgeUrl);
+console.log(prepareOutput(badgeUrl, cli.flags.output));
